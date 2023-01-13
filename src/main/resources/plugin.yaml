@@ -1,0 +1,13 @@
+# A unique name
+name: plugin-starter
+# plugin 'version' is a valid semantic version string (see semver.org).
+version: 1.0.0-SNAPSHOT
+requires: "*"
+author:
+  name: Ikaros OSS Team
+  website: https://github.com/ikaros-dev
+logo: https://github.com/ikaros-dev/ikaros/blob/master/assets/logo.png
+homepage: https://github.com/ikaros-dev/plugin-starter
+displayName: "插件快速开始模板"
+description: "这是一个插件快速开始模板"
+license: "AGPL-2.0"
