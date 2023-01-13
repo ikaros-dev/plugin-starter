@@ -21,6 +21,7 @@ ext {
 dependencies {
     compileOnly "org.springframework:spring-context:$springContext"
     compileOnly "org.pf4j:pf4j:$pf4j"
+    compileOnly "io.projectreactor:reactor-core:3.5.1"
     compileOnly files('lib/ikaros-1.0.0-SNAPSHOT-plain.jar')
 
     // lombok
