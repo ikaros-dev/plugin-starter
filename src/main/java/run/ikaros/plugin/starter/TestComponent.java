@@ -33,7 +33,7 @@ public class TestComponent implements InitializingBean {
             log.info("starter custom exists: {}", starterCustomOptional.get());
         } else {
             reactiveCustomClient.create(starterCustom).block();
-            log.info("create starter custom");
+            log.info("create starter custom: {}", starterCustom);
         }
 
 
