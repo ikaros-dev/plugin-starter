@@ -11,7 +11,8 @@ import run.ikaros.server.custom.Name;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Custom(group = "plugin.ikaros.run", version = "v1alpha1", kind = "StarterCustom")
+@Custom(group = "plugin.ikaros.run", version = "v1alpha1",
+        kind = "StarterCustom", singular = "starter", plural = "starters")
 public class StarterCustom {
     @Name
     private String title;
