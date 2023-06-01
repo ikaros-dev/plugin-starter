@@ -45,3 +45,6 @@ database/
 tripartite/
 original/
 plugins/
+
+### Console Build ###
+src/main/resources/console/

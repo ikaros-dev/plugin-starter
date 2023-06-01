@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { fileURLToPath, URL } from "url";
 import Vue from "@vitejs/plugin-vue";
 import VueJsx from "@vitejs/plugin-vue-jsx";
 
@@ -21,11 +22,11 @@ export default defineConfig({
       entry: "src/index.ts",
       name: pluginEntryName,
       formats: ["iife"],
-      fileName: () => "main.js",
+      fileName: () => "index.js",
     },
   },
-  rollupOptions: {
-    external: [],
-    output: {}
-  }
+  // rollupOptions: {
+  //   external: [],
+  //   output: {}
+  // }
 })
