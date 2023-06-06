@@ -8,8 +8,8 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
-import run.ikaros.server.custom.ReactiveCustomClient;
-import run.ikaros.server.endpoint.CoreEndpoint;
+import run.ikaros.api.custom.ReactiveCustomClient;
+import run.ikaros.api.endpoint.CoreEndpoint;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.contentType;
 

@@ -4,8 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
-import run.ikaros.server.custom.ReactiveCustomClient;
-import run.ikaros.server.infra.exception.NotFoundException;
+import run.ikaros.api.custom.ReactiveCustomClient;
+import run.ikaros.api.exception.NotFoundException;
 
 import java.util.Optional;
 

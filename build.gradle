@@ -27,7 +27,7 @@ dependencies {
     compileOnly "io.projectreactor:reactor-core:3.5.1"
     compileOnly "org.springframework:spring-webflux:6.0.3"
     compileOnly "org.springdoc:springdoc-openapi-starter-webflux-api:2.0.2"
-    compileOnly files('lib/ikaros-1.0.0-SNAPSHOT-plain.jar')
+    compileOnly files('lib/api-1.0.0-SNAPSHOT.jar')
 
     // lombok
     compileOnly "org.projectlombok:lombok:$lombok"

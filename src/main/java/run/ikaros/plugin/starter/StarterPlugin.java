@@ -4,7 +4,7 @@ package run.ikaros.plugin.starter;
 import lombok.extern.slf4j.Slf4j;
 import org.pf4j.PluginWrapper;
 import org.springframework.stereotype.Component;
-import run.ikaros.server.plugin.BasePlugin;
+import run.ikaros.api.plugin.BasePlugin;
 
 @Slf4j
 @Component

@@ -1,11 +1,12 @@
 package run.ikaros.plugin.starter;
 
+import run.ikaros.api.custom.Custom;
+import run.ikaros.api.custom.Name;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import run.ikaros.server.custom.Custom;
-import run.ikaros.server.custom.Name;
 
 @Data
 @Builder
