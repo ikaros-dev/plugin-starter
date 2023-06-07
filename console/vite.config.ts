@@ -7,6 +7,9 @@ const pluginEntryName = "PluginStarter";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    'process.env': {}
+  },
   plugins: [Vue(), VueJsx()],
   resolve: {
     alias: {
@@ -25,8 +28,4 @@ export default defineConfig({
       fileName: () => "index.js",
     },
   },
-  // rollupOptions: {
-  //   external: [],
-  //   output: {}
-  // }
 })

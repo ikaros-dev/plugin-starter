@@ -1,7 +1,7 @@
 import { definePlugin } from "@runikaros/shared"
 import HomeView from "./views/HomeView.vue";
 
-console.log('Hello Ikaros')
+// console.log('Hello Ikaros')
 export default definePlugin({
     name: 'PluginStater',
     components: {},
@@ -29,5 +29,4 @@ export default definePlugin({
         },
       },
     ],
-    extensionPoints: {},
 })
