@@ -1,32 +1,23 @@
 import { definePlugin } from "@runikaros/shared"
-import HomeView from "./views/HomeView.vue";
+import HomeView from './views/HomeView.vue';
+import { Files as FilesIcon } from '@element-plus/icons-vue';
+import {  markRaw } from "vue"
 
 // console.log('Hello Ikaros')
 export default definePlugin({
-    name: 'PluginStater',
+    name: 'PluginStarter',
     components: {},
     routes: [
       {
-        parentName: "Root",
-        route: {
-          path: "/example",
-          children: [
-            {
-              path: "",
-              name: "Example",
-              component: HomeView,
-              meta: {
-                title: "示例页面",
-                searchable: true,
-                menu: {
-                  name: "示例页面",
-                  group: "示例分组",
-                  priority: 0,
-                },
-              },
-            },
-          ],
-        },
-      },
+        path: '/plugin-home-view',
+        component: HomeView,
+        name: "HomeView",
+        meta: {
+          name: 'core.sidebar.menu.items.files',
+            group: 'content',
+            icon: markRaw(FilesIcon),
+            priority: 0,
+        }
+      }
     ],
 })
