@@ -1,17 +1,16 @@
 package run.ikaros.plugin.starter;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import run.ikaros.api.custom.ReactiveCustomClient;
-import run.ikaros.api.exception.NotFoundException;
 
-import java.util.Optional;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class TestComponent implements InitializingBean {
+public class TestComponent {
     private final ReactiveCustomClient reactiveCustomClient;
     private StarterCustom starterCustom;
 
@@ -19,23 +18,25 @@ public class TestComponent implements InitializingBean {
         this.reactiveCustomClient = reactiveCustomClient;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+
+    @EventListener(ApplicationReadyEvent.class)
+    public Mono<Void> afterPropertiesSet() throws Exception {
         starterCustom = StarterCustom
-                .builder()
-                .title("starter")
-                .build();
-        Optional<StarterCustom> starterCustomOptional = reactiveCustomClient
-                .findOne(StarterCustom.class, starterCustom.getTitle())
-                .onErrorResume(NotFoundException.class, e -> Mono.empty())
-                .blockOptional();
-        if(starterCustomOptional.isPresent())  {
-            log.info("starter custom exists: {}", starterCustomOptional.get());
-        } else {
-            reactiveCustomClient.create(starterCustom).block();
-            log.info("create starter custom: {}", starterCustom);
-        }
+            .builder()
+            .title("starter")
+            .build();
 
-
+        return reactiveCustomClient
+            .findOne(StarterCustom.class, starterCustom.getTitle())
+            .flatMap(sc -> {
+                if (sc == null) {
+                    log.info("create starter custom: {}", starterCustom);
+                    return reactiveCustomClient.create(sc);
+                } else {
+                    log.info("starter custom exists: {}", sc);
+                    return Mono.just(sc);
+                }
+            })
+            .then();
     }
 }
