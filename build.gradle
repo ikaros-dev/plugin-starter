@@ -3,9 +3,6 @@ plugins {
     id 'java'
 }
 
-group 'run.ikaros.plugin'
-version '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
     maven { url 'https://s01.oss.sonatype.org/content/repositories/releases' }
