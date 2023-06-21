@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
     kind = "Config", singular = "config", plural = "configs")
 public class ConfigCustom {
     @Name
-    private String name;
+    private String group;
     private String field1;
     private String field12;
 }
