@@ -1,7 +1,6 @@
 package run.ikaros.plugin.starter;
 
 import run.ikaros.api.custom.Custom;
-import run.ikaros.api.custom.Name;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,10 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Custom(group = "starter.ikaros.run", version = "v1alpha1",
-        kind = "StarterCustom", singular = "starter", plural = "starters")
-public class StarterCustom {
-    @Name
-    private String title;
-
-    private Integer number;
+    kind = "Config", singular = "config", plural = "configs")
+public class ConfigCustom {
+    private String field1;
+    private String field12;
 }

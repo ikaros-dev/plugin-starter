@@ -22,7 +22,7 @@ public class StarterFileHandler implements FileHandler {
 
     @Override
     public String policy() {
-        return FileConst.POLICY_LOCAL;
+        return "";
     }
 
     @Override

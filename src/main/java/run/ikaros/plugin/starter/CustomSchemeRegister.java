@@ -18,5 +18,6 @@ public class CustomSchemeRegister implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         customSchemeManager.register(StarterCustom.class);
+        customSchemeManager.register(ConfigCustom.class);
     }
 }
