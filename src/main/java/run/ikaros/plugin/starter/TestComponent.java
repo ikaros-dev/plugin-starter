@@ -5,6 +5,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import run.ikaros.api.custom.ReactiveCustomClient;
+import run.ikaros.api.exception.NotFoundException;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,15 +29,9 @@ public class TestComponent {
 
         return reactiveCustomClient
             .findOne(StarterCustom.class, starterCustom.getTitle())
-            .flatMap(sc -> {
-                if (sc == null) {
-                    log.info("create starter custom: {}", starterCustom);
-                    return reactiveCustomClient.create(sc);
-                } else {
-                    log.info("starter custom exists: {}", sc);
-                    return Mono.just(sc);
-                }
-            })
+            .onErrorResume(NotFoundException.class, e -> reactiveCustomClient.create(starterCustom)
+                .doOnSuccess(sc -> log.info("create starter custom: {}", starterCustom)))
+            .doOnSuccess(sc -> log.info("starter custom exists: {}", sc))
             .then();
     }
 }

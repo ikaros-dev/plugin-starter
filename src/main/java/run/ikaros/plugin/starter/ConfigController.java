@@ -6,11 +6,12 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import run.ikaros.api.core.setting.ConfigMap;
 import run.ikaros.api.custom.ReactiveCustomClient;
+import run.ikaros.api.exception.NotFoundException;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-//@Component
+@Component
 public class ConfigController {
     private final ReactiveCustomClient reactiveCustomClient;
     /**
@@ -23,11 +24,10 @@ public class ConfigController {
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public Mono<Void> initConfigMap() {
-        ConfigMap configMap = new ConfigMap();
-        configMap.setName(pluginName);
-        configMap.putDataItem("username", "test1");
-        configMap.putDataItem("password", "test2");
-        return reactiveCustomClient.create(configMap).then();
+    public Mono<Void> getConfigMap() {
+        return reactiveCustomClient.findOne(ConfigMap.class, pluginName)
+            .onErrorResume(NotFoundException.class, e -> Mono.empty())
+            .doOnSuccess(cm -> log.info("find config map: [{}].", cm))
+            .then();
     }
 }
