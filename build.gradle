@@ -14,6 +14,7 @@ ext {
     springContext = '6.0.3'
     pf4j = '3.8.0'
     lombok = '1.18.24'
+    libFile = 'lib/api-0.3.0.jar'
 }
 
 
@@ -24,7 +25,16 @@ dependencies {
     compileOnly "io.projectreactor:reactor-core:3.5.1"
     compileOnly "org.springframework:spring-webflux:6.0.3"
     compileOnly "org.springdoc:springdoc-openapi-starter-webflux-api:2.0.2"
-    compileOnly files('lib/api-0.3.0.jar')
+    compileOnly files(libFile)
+
+
+    testCompileOnly "org.springframework:spring-context:$springContext"
+    testCompileOnly "org.pf4j:pf4j:$pf4j"
+    testCompileOnly "io.projectreactor:reactor-core:3.5.1"
+    testCompileOnly "org.springframework:spring-webflux:6.0.3"
+    testCompileOnly "org.springdoc:springdoc-openapi-starter-webflux-api:2.0.2"
+    testCompileOnly files(libFile)
+
 
     // lombok
     compileOnly "org.projectlombok:lombok:$lombok"
@@ -33,6 +43,7 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
 }
 
 test {
