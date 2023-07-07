@@ -14,7 +14,7 @@ ext {
     springContext = '6.0.3'
     pf4j = '3.8.0'
     lombok = '1.18.24'
-    libFile = 'lib/api-0.3.0.jar'
+    libFile = 'lib/api-0.4.3.jar'
 }
 
 
@@ -25,15 +25,15 @@ dependencies {
     compileOnly "io.projectreactor:reactor-core:3.5.1"
     compileOnly "org.springframework:spring-webflux:6.0.3"
     compileOnly "org.springdoc:springdoc-openapi-starter-webflux-api:2.0.2"
-    compileOnly files(libFile)
 
+    compileOnly files(libFile)
+    testRuntimeOnly files(libFile)
 
     testRuntimeOnly "org.springframework:spring-context:$springContext"
     testRuntimeOnly "org.pf4j:pf4j:$pf4j"
     testRuntimeOnly "io.projectreactor:reactor-core:3.5.1"
     testRuntimeOnly "org.springframework:spring-webflux:6.0.3"
     testRuntimeOnly "org.springdoc:springdoc-openapi-starter-webflux-api:2.0.2"
-    testRuntimeOnly files(libFile)
 
 
     // lombok
