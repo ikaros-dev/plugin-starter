@@ -6,7 +6,7 @@ name: Server CI
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - "**"
       - '!console/**'

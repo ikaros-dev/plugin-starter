@@ -10,7 +10,7 @@ on:
 jobs:
 
   release:
-    if: github.repository == 'ikaros-dev/plugin-bgmtv'
+    if: github.repository == 'ikaros-dev/plugin-starter'
     name: Build with java 17 and upload
     runs-on: ubuntu-latest
     steps:
